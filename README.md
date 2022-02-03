@@ -18,3 +18,7 @@ This is enough to cause app to crash on scroll
 - open sample app on android
 - scroll down to very bottom
 - app will crash
+
+
+https://user-images.githubusercontent.com/6298342/152316031-e467cc3f-c9d5-4067-9198-d08fe714e755.mov
+
