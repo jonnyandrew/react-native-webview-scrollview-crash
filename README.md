@@ -9,10 +9,10 @@ https://github.com/noumantahir/react-native-webview-scrollview-crash/blob/f3987c
 This is enough to cause app to crash on scroll
 
 ## build instruction
-- gh repo clone noumantahir/react-native-webview-scrollview-crash
-- cd react-native-webview-scrollview-crash
-- yarn
-- npx react-native run-android
+- `gh repo clone noumantahir/react-native-webview-scrollview-crash`
+- `cd react-native-webview-scrollview-crash`
+- `yarn`
+- `npx react-native run-android`
 
 ## reproduce crash
 - scroll down to very bottom
