@@ -15,5 +15,6 @@ This is enough to cause app to crash on scroll
 - `npx react-native run-android`
 
 ## reproduce crash
+- open sample app on android
 - scroll down to very bottom
-- android app will crash
+- app will crash
