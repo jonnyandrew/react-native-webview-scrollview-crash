@@ -10,7 +10,7 @@ import React from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
+  FlatList,
   StatusBar,
   StyleSheet,
   Text,
@@ -60,15 +60,19 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <WebView style={{height:200}} source={{html:"<p>This is web body</p>"}} ></WebView>
-        <View
+  const renderItem = (feedItem) => {
+    const { item, index } = feedItem;
+
+    let itemView = null;
+    switch (item) {
+      case "header":
+        itemView = (<Header />)
+        break;
+      case "webview":
+        itemView = (<WebView style={{ height: 200 }} source={{ html: "<p>This is web body</p>" }} ></WebView>);
+        break;
+      case "content":
+        itemView = (<View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
@@ -86,8 +90,23 @@ const App: () => Node = () => {
             Read the docs to discover what to do next:
           </Section>
           <LearnMoreLinks />
-        </View>
-      </ScrollView>
+        </View>);
+        break;
+      default:
+        itemView = <Text>item</Text>
+        break;
+      }
+    return itemView;
+  }
+
+  return (
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <FlatList
+        data={["header", "webview", "content"]}
+        renderItem={renderItem}
+      >
+      </FlatList>
     </SafeAreaView>
   );
 };
